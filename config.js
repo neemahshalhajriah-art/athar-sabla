@@ -1,5 +1,1 @@
-// بعد إنشاء مشروع Supabase المجاني، ضعي هنا الرابط والمفتاح العام (anon public key).
-window.SABLA_CONFIG = {
-  url: "",
-  key: ""
-};
+window.SABLA_CONFIG = { url: "https://biuomdpnfbnhhnauriwp.supabase.co", key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJpdW9tZHBuZmJuaGhuYXVyaXdwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTQ2MjE2OTgsImV4cCI6MjExMDE5NzY5OH0.Hnk5SmGjUlpTdVIEsewRJszPr3VNK7sN62Pqy5RJlxA" };

@@ -8,7 +8,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='40' fill='none' stroke='%231F4D3A' stroke-width='12'/%3E%3Ccircle cx='100' cy='100' r='70' fill='none' stroke='%23C9952E' stroke-width='10'/%3E%3Ccircle cx='100' cy='100' r='12' fill='%23C9952E'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;600;700;800&family=Almarai:wght@400;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap">
 <style>
 /* Layout: a majlis band (green, Omani khatam pattern) holding the name and the path through the sabla; below it one room at a time on a sand ground. */
 :root{
@@ -16,7 +16,7 @@
   --surface:#FFFFFF;
   --surface-2:#EEF3EF;
   --ink:#163528;
-  --muted:#56675E;
+  --muted:#43544A;
   --line:#E3DCCB;
   --green:#1F4D3A;
   --green-2:#2E6B52;
@@ -29,8 +29,8 @@
   --warn-ink:#8A3B12;
   --ok:#2E6B52;
   --shadow:rgba(22,53,40,.10);
-  --display:'Baloo Bhaijaan 2','Almarai','Segoe UI',Tahoma,sans-serif;
-  --body:'Almarai','Segoe UI',Tahoma,sans-serif;
+  --display:'Cairo','Segoe UI',Tahoma,sans-serif;
+  --body:'Cairo','Segoe UI',Tahoma,sans-serif;
   --c-cost:#9C8F74;
   --c-price:#2E6B52;
   --c-profit:#C9952E;
@@ -49,7 +49,7 @@
 
 *{box-sizing:border-box}
 html{direction:rtl}
-body{background:var(--ground);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.75;-webkit-text-size-adjust:100%}
+body{background:var(--ground);color:var(--ink);font-family:var(--body);font-size:17px;font-weight:500;line-height:1.7;-webkit-text-size-adjust:100%}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--band)}
 a{color:var(--green-2)}
 :focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:8px}
@@ -68,6 +68,11 @@ p{margin:0}
 .nav{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-block:4px 10px;margin-inline:-4px;padding-inline:4px}
 .nav::-webkit-scrollbar{display:none}
 .nav a{flex:none;color:var(--on-band);text-decoration:none;font-weight:700;font-size:15px;padding:7px 14px;border-radius:999px;border:1.5px solid rgba(255,255,255,.28);white-space:nowrap}
+.nav a .nt{display:flex;flex-direction:column;line-height:1.25;text-align:start}
+.nav a .nt b{font-size:15px;font-weight:800}
+.nav a .nt small{font-size:12px;font-weight:500;opacity:.85}
+.nav a:has(.nt){display:inline-flex;align-items:center;gap:8px;padding:6px 16px 6px 14px;border-radius:16px}
+.nav a[aria-current="page"] .nt small{opacity:.8}
 .nav a[aria-current="page"]{background:var(--gold);border-color:var(--gold);color:#1F2A14}
 
 main{padding-block:28px 40px}
@@ -205,18 +210,6 @@ textarea:focus,input:focus{outline:none;border-color:var(--green-2);box-shadow:0
 .empty svg{width:56px;height:56px;color:var(--gold)}
 .empty b{color:var(--ink);font-size:18px}
 
-/* checklist */
-.progress{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;display:flex;flex-direction:column;gap:10px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 108px);z-index:2}
-.bar{height:12px;border-radius:999px;background:var(--surface-2);overflow:hidden}
-.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--green-2));border-radius:999px;transition:width .3s ease}
-.progress b{font-variant-numeric:tabular-nums}
-.groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px}
-.group{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;display:flex;flex-direction:column;gap:6px;min-width:0}
-.group h3{font-size:19px;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
-.group h3 a{font-family:var(--body);font-size:13.5px;font-weight:800;color:var(--gold-ink);text-decoration:none}
-.check{display:flex;gap:12px;align-items:flex-start;padding:8px 0;font-weight:500;font-size:16px;margin:0;cursor:pointer;line-height:1.55}
-.check input{flex:none;width:22px;height:22px;margin-top:2px;accent-color:var(--green)}
-.check input:checked + span{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--gold)}
 
 footer{border-top:1px solid var(--line);padding-block:18px 26px;color:var(--muted);font-size:14.5px}
 footer .wrap{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
@@ -428,8 +421,6 @@ footer a{color:inherit}
 <symbol id="ic-zad" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21h20l-2.6 17a3 3 0 0 1-3 2.5H20.6a3 3 0 0 1-3-2.5z"/><path d="M17 21c0-4 3-7 8-7s8 3 8 7"/><path d="M25 14v-3"/><circle cx="25" cy="9.5" r="1.6"/><path d="M34 25c4-1 6-4 7-9"/><path d="M15 25c-4 0-6 3-5 7s4 4 6 4"/><path class="steam" d="M21 5c-2-2 2-3 0-5" stroke-width="2"/></symbol>
 <symbol id="ic-falaj" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13h42M3 39h42"/><path class="wv" d="M4 22c4-4 8 4 12 0s8 4 12 0 8 4 12 0 4 0 4 0"/><path class="wv w2" d="M4 31c4-4 8 4 12 0s8 4 12 0 8 4 12 0 4 0 4 0"/></symbol>
 <symbol id="ic-siraj" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 3v5"/><circle cx="24" cy="10" r="2"/><path d="M14 17l10-6 10 6z"/><path d="M16 17l-2 19h20l-2-19"/><path d="M12 36h24v5H12z"/><path class="flame" d="M24 21c4 5 4 9 0 12-4-3-4-7 0-12z"/></symbol>
-<symbol id="ic-badla" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 5l15 19-15 19L9 24z"/><path d="M24 15l8 9-8 9-8-9z"/><circle cx="24" cy="24" r="2" fill="currentColor"/><path d="M2 24h5M41 24h5M24 1.5v0M24 46.5v0"/></symbol>
-<symbol id="ic-laban" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 28h28c0 7-6 11-14 11s-14-4-14-11z"/><path d="M17 43h14"/><path class="sm" d="M19 22c-3-3 3-5 0-9"/><path class="sm s2" d="M29 22c-3-3 3-5 0-9"/></symbol>
 <symbol id="ic-nakhla" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 44c1.2-8 1.2-17-1-25"/><path d="M17 44h14"/><g class="frond"><path d="M23 18c-5-5-11-5.5-16-2.5"/><path d="M23 18c-3-6-2-11.5 2.5-14.5"/><path d="M23 18c4.5-5 10.5-6 16-3"/><path d="M23 18c-6.5-1-11.5 2-13.5 7.5"/><path d="M23 18c6.5-1 11.5 2.2 13.5 7.5"/></g><circle cx="21" cy="22" r="1.5" fill="currentColor"/><circle cx="25.2" cy="22.6" r="1.5" fill="currentColor"/></symbol>
 <symbol id="ic-mandoos" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 21c0-6 7.5-10 17-10s17 4 17 10z"/><path d="M7 21v17a2 2 0 0 0 2 2h30a2 2 0 0 0 2-2V21"/><path d="M7 30h34"/><path d="M21 23.5h6v8h-6z"/><circle class="coin" cx="24" cy="27" r="1.3" fill="currentColor"/><circle cx="11.5" cy="25.5" r="1.2" fill="currentColor"/><circle cx="36.5" cy="25.5" r="1.2" fill="currentColor"/><circle cx="11.5" cy="35" r="1.2" fill="currentColor"/><circle cx="36.5" cy="35" r="1.2" fill="currentColor"/><path d="M11 40v3M37 40v3"/></symbol>
 <symbol id="ic-mizan" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="7" r="2"/><path d="M24 9v32"/><path d="M15 42h18"/><g class="tilt"><path d="M8 14h32"/><path d="M8 14l-5 12M8 14l5 12"/><path d="M2 26h12c0 4-2.7 6.5-6 6.5S2 30 2 26z"/><path d="M40 14l-5 12M40 14l5 12"/><path d="M34 26h12c0 4-2.7 6.5-6 6.5S34 30 34 26z"/></g></symbol>
@@ -440,14 +431,13 @@ footer a{color:inherit}
     <a class="brand" href="#home" aria-label="سبلة أثر، الصفحة الرئيسية"><svg viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="40" fill="none" stroke="currentColor" stroke-width="10"/><g class="lg-spin2"><circle cx="100" cy="100" r="62" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" pathLength="100" stroke-dasharray="77 23" stroke-opacity="0.7" transform="rotate(-50 100 100)"/></g><g class="lg-spin3"><circle cx="100" cy="100" r="84" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" pathLength="100" stroke-dasharray="43.6 56.4" stroke-opacity="0.42" transform="rotate(-70 100 100)"/></g><circle class="lg-dot" cx="100" cy="100" r="17" fill="#D4A23C"/></svg><b>سبلة أثر</b></a>
     <nav class="nav" aria-label="أقسام السبلة">
       <a href="#home">الرئيسية</a>
-      <a href="#souq"><svg class="nic" aria-hidden="true"><use href="#ic-mizan"/></svg>سبلة ميزان أثر</a>
-      <a href="#bisa"><svg class="nic" aria-hidden="true"><use href="#ic-mandoos"/></svg>سبلة مندوس أثر</a>
-      <a href="#recycle"><svg class="nic" aria-hidden="true"><use href="#ic-nakhla"/></svg>سبلة نخلة أثر</a>
+      <a href="#souq"><svg class="nic" aria-hidden="true"><use href="#ic-mizan"/></svg><span class="nt"><b>ميزان أثر</b><small>أرقام السوق ولعبة ناجية</small></span></a>
+      <a href="#bisa"><svg class="nic" aria-hidden="true"><use href="#ic-mandoos"/></svg><span class="nt"><b>مندوس أثر</b><small>حلقات كل بيسة لها أثر</small></span></a>
+      <a href="#recycle"><svg class="nic" aria-hidden="true"><use href="#ic-nakhla"/></svg><span class="nt"><b>نخلة أثر</b><small>معرض نعيدها لتحيا</small></span></a>
       <span class="nav-sep" aria-hidden="true"></span>
-      <a href="#episodes"><svg class="nic" aria-hidden="true"><use href="#ic-zad"/></svg>سبلة زاد أثر</a>
-      <a href="#feasibility"><svg class="nic" aria-hidden="true"><use href="#ic-falaj"/></svg>سبلة فلج أثر</a>
-      <a href="#photos"><svg class="nic" aria-hidden="true"><use href="#ic-siraj"/></svg>سبلة سراج أثر</a>
-      <a href="#checklist"><svg class="nic" aria-hidden="true"><use href="#ic-badla"/></svg>سبلة بادلة أثر</a>
+      <a href="#episodes"><svg class="nic" aria-hidden="true"><use href="#ic-zad"/></svg><span class="nt"><b>زاد أثر</b><small>نصائح للمشروع</small></span></a>
+      <a href="#feasibility"><svg class="nic" aria-hidden="true"><use href="#ic-falaj"/></svg><span class="nt"><b>فلج أثر</b><small>حاسبة الجدوى</small></span></a>
+      <a href="#photos"><svg class="nic" aria-hidden="true"><use href="#ic-siraj"/></svg><span class="nt"><b>سراج أثر</b><small>تصوير المنتج</small></span></a>
     </nav>
   </div>
 </header>
@@ -477,13 +467,12 @@ footer a{color:inherit}
 
     <div class="head door-h">
       <p class="eyebrow">الباب الثاني</p>
-      <h2>لصاحبات المشاريع: أربع محطات بهذا الترتيب</h2>
+      <h2>لصاحبات المشاريع: ثلاث محطات بهذا الترتيب</h2>
     </div>
     <div class="path">
       <a class="step" href="#episodes"><span class="tile"><svg aria-hidden="true"><use href="#ic-zad"/></svg></span><div><small class="st">المحطة الأولى</small><h3>سبلة زاد أثر</h3><p>نصائح قصيرة تأخذ بيدكِ خطوةً خطوة، حتى تتشكّل فكرة مشروعكِ ومنتجكِ ويصير لهما وجه واضح.</p></div></a>
       <a class="step" href="#feasibility"><span class="tile"><svg aria-hidden="true"><use href="#ic-falaj"/></svg></span><div><small class="st">المحطة الثانية</small><h3>سبلة فلج أثر</h3><p>دراسة الجدوى: كما يُقسَّم ماء الفلج بالحساب، تُحسب أرقامكِ فتعرفين متى تستردّين ما دفعتِ.</p></div></a>
       <a class="step" href="#photos"><span class="tile"><svg aria-hidden="true"><use href="#ic-siraj"/></svg></span><div><small class="st">المحطة الثالثة</small><h3>سبلة سراج أثر</h3><p>عيادة التصوير: كان السراج دليل العُماني ومرشده في ليالي ما قبل الكهرباء، وصورتكِ الجيدة تنير منتجكِ فيهتدي إليه الناس. صوّري وأرسلي صوركِ لتصلكِ ملاحظات فريق أثر.</p></div></a>
-      <a class="step" href="#checklist"><span class="tile"><svg aria-hidden="true"><use href="#ic-badla"/></svg></span><div><small class="st">المحطة الرابعة</small><h3>سبلة بادلة أثر</h3><p>قائمة الجاهزية: البادلة تُحاك غرزةً غرزة بصبر، وكذلك تكتمل جاهزيتكِ بندًا بندًا قبل يوم العرض.</p></div></a>
     </div>
   </section>
 
@@ -581,7 +570,7 @@ footer a{color:inherit}
     <div class="head">
       <span class="vic"><svg aria-hidden="true"><use href="#ic-siraj"/></svg></span><p class="eyebrow">المحطة الثالثة: سبلة سراج أثر</p>
       <h2 id="h-ph">صورة صادقة وواضحة تبيع قبل أن تتكلمي</h2>
-      <p class="lead">صوّري منتجكِ بجوالكِ على هذه الخطوات الأربع، وارجعي إلى هذه الصفحة كلما صوّرتِ منتجًا جديدًا. <a href="#episodes" data-ep="5">شاهدي الحلقة الخامسة</a></p>
+      <p class="lead">صوّري منتجكِ بجوالكِ على هذه الخطوات الأربع، ثم أرسلي صوركِ لتصلكِ ملاحظات فريق أثر. <a href="#episodes" data-ep="5">شاهدي الحلقة الخامسة</a></p>
     </div>
     <div class="tips">
       <div class="tip"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="32" height="34" rx="3"/><path d="M24 8v34M8 25h32"/><circle cx="33" cy="15" r="3.5" fill="currentColor" stroke="none"/></svg><h3>الضوء</h3><p>صوّري قرب نافذة في النهار، وابتعدي عن الفلاش.</p></div>
@@ -591,7 +580,7 @@ footer a{color:inherit}
     </div>
     <p class="lens"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1c.9 4.7 2.3 6.1 7 7-4.7.9-6.1 2.3-7 7-.9-4.7-2.3-6.1-7-7 4.7-.9 6.1-2.3 7-7z"/></svg>وقبل أن تبدئي، امسحي عدسة جوالكِ.</p>
 
-    <div class="send" hidden style="display:none">
+    <div class="send">
       <h3 style="font-size:22px">أرسلي صورة منتجكِ</h3>
       <p class="hint" id="up-off" hidden>رفع الصور سيُفتح قريبًا، استعدّي بتصوير منتجكِ على الخطوات الأربع.</p>
       <form class="up" id="up" novalidate>
@@ -623,40 +612,11 @@ footer a{color:inherit}
       </div>
     </div>
 
-    <div class="head" hidden style="display:none">
+    <div class="head">
       <h2 style="font-size:clamp(24px,5vw,32px)">معرض سبلة أثر</h2>
       <p class="lead">أجمل الصور مع سبب جمالها لتكون نموذجًا تحتذين به، وصور قبل التعديل وبعده لترين الفرق بعينكِ.</p>
     </div>
-    <div id="gallery" hidden></div>
-  </section>
-
-  <!-- CHECKLIST -->
-  <section class="view" data-view="checklist" aria-labelledby="h-ck" hidden>
-    <div class="head">
-      <span class="vic"><svg aria-hidden="true"><use href="#ic-badla"/></svg></span><p class="eyebrow">المحطة الرابعة: سبلة بادلة أثر</p>
-      <h2 id="h-ck">أشّري على ما أنجزتِ قبل يوم العرض</h2>
-      <p class="lead">تبقى علاماتكِ محفوظة في جوالكِ. وبجانب كل مجموعة الحلقة التي تشرحها.</p>
-    </div>
-    <div class="progress"><div class="row" style="justify-content:space-between"><span>أنجزتِ <b id="ck-n">٠</b> من <b id="ck-t">٠</b></span><button type="button" class="btn ghost" id="ck-reset" style="min-height:38px;padding:6px 14px;font-size:14px">ابدئي من جديد</button></div><div class="bar" role="progressbar" aria-label="نسبة الإنجاز" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="ck-bar"><i></i></div></div>
-    <div class="groups" id="groups"></div>
-  </section>
-
-  <!-- IDEAS -->
-  <section class="view" data-view="ideas" aria-labelledby="h-id" hidden>
-    <div class="head">
-      <span class="vic"><svg aria-hidden="true"><use href="#ic-laban"/></svg></span><p class="eyebrow">المحطة الخامسة: سبلة لبان أثر</p>
-      <h2 id="h-id">فكرتكِ قد تصنع أثرًا</h2>
-      <p class="lead">عندكِ فكرة تطوّر السبلة، أو موضوع تتمنين أن تتناوله حلقة جديدة، أو سؤال عن مشروعكِ؟ اكتبيها هنا وسيقرؤها فريق أثر، دون اسم ودون صف.</p>
-    </div>
-    <form class="send up" id="idea-form" novalidate>
-      <p class="hint" id="id-off" hidden>صندوق الأفكار سيُفتح قريبًا.</p>
-      <div>
-        <label class="l" for="id-body">فكرتكِ أو سؤالكِ</label>
-        <textarea id="id-body" maxlength="500" placeholder="اكتبي فكرتكِ باختصار. لا تكتبي اسمكِ ولا صفّكِ."></textarea>
-        <p class="fine" style="margin-top:6px"><span id="id-count">٠</span> / ٥٠٠</p>
-      </div>
-      <div class="row"><button type="submit" class="btn" id="id-go">أرسلي فكرتكِ</button><span class="status" id="id-status" role="status"></span></div>
-    </form>
+    <div id="gallery"></div>
   </section>
 
   <!-- RECYCLE: سبلة نخلة أثر -->
@@ -779,8 +739,6 @@ footer a{color:inherit}
       <div class="row" style="justify-content:space-between;margin-bottom:12px"><span class="status" id="ad-msg" role="status"></span><button type="button" class="btn ghost small" id="ad-out">خروج</button></div>
       <h3 style="font-size:22px;margin-bottom:10px">الصور المرفوعة</h3>
       <div class="adm" id="ad-subs"></div>
-      <h3 style="font-size:22px;margin:22px 0 10px">صندوق الأفكار</h3>
-      <div class="adm" id="ad-ideas"></div>
 
       <h3 style="font-size:22px;margin:26px 0 10px">سبلة نخلة أثر: منتجات «نعيدها لتحيا»</h3>
       <label class="switch"><input type="checkbox" id="rc-show"><span>إظهار الفائزات في الصفحة العامة</span></label>
@@ -843,16 +801,6 @@ const SERIES = {
   bisa: { list: BISA,     vid: n => `bisa${n}.mp4`, poster: n => `bisa${n}.jpg`, name: 'كل بيسة لها أثر · ' }
 };
 
-const CHECKS = [
-  {g:"الإعلان", ep:1, items:["إعلاني يذكر بوضوح ماذا يقدّم منتجي للزبونة","إعلاني يذكر ما يميّز منتجي عن غيره","إعلاني يختم بخطوة واضحة: كيف تطلب الزبونة وأين تجدني"]},
-  {g:"الهوية البصرية", ep:2, items:["لمشروعي اسم قصير سهل النطق","لمشروعي شعار بسيط يُعرف حتى لو صَغُر","ألتزم بلونين أو ثلاثة في كل شيء","هويتي من صنعي، لا منسوخة من مشروع آخر"]},
-  {g:"السعر والصدق", ep:3, items:["حسبتُ التكلفة أولًا، ثم أضفتُ ربحًا معقولًا","لا خصومات وهمية، ولا وعود أكبر من منتجي","لا تقييمات مزيّفة"]},
-  {g:"الصور", ep:5, items:["صوّرتُ منتجي في ضوء النهار وعلى خلفية هادئة","صوّرتُه من الأمام والجانب، وصورة قريبة، وأخرى في اليد","ألوان صوري كما هي في الحقيقة"]},
-  {g:"التغليف", ep:6, items:["على الغلاف اسم مشروعي وشعاري وألواني","الغلاف يحفظ المنتج حتى يصل سليمًا","كتبتُ المكوّنات وطريقة الاستعمال، وتاريخ الصنع والانتهاء إن كان طعامًا"]},
-  {g:"دراسة الجدوى", ep:7, items:["أجبتُ عن الأسئلة الخمسة بالأرقام","أعرف كم قطعة أبيع حتى أستردّ ما دفعت"]},
-  {g:"الزبونة", ep:8, items:["أعرف كيف أردّ على رسالة زبونة بسرعة وأدب ووضوح","أعرف كيف أتعامل مع الشكوى: أستمع، وأعتذر، وأقترح حلًّا"]}
-];
-
 const AR = new Intl.NumberFormat('ar-OM-u-nu-arab',{maximumFractionDigits:3});
 const ar = n => AR.format(n);
 const store = {
@@ -862,7 +810,7 @@ const store = {
 const $ = s => document.querySelector(s);
 
 /* ---- routing ---- */
-const VIEWS = ['home','episodes','feasibility','photos','checklist','recycle','souq','bisa','admin'];
+const VIEWS = ['home','episodes','feasibility','photos','recycle','souq','bisa','admin'];
 function route(){
   let h = location.hash.replace('#',''), jump = null;
   if (h === 'najia') { h = 'souq'; jump = 'sq-p2'; }
@@ -1109,7 +1057,7 @@ function renderSlots(){
   });
   upReady();
 }
-if (!sb) { $('#up-off').hidden = false; $('#u-proj').disabled = true; $('#id-off').hidden = false; $('#id-go').disabled = true; $('#id-body').disabled = true; }
+if (!sb) { $('#up-off').hidden = false; $('#u-proj').disabled = true; }
 document.querySelectorAll('input[name="u-mode"]').forEach(r => r.addEventListener('change', () => { up.mode = r.value; clearItems(); renderSlots(); }));
 $('#u-proj').addEventListener('input', upReady);
 renderSlots();
@@ -1184,19 +1132,6 @@ async function loadGallery(){
 }
 loadGallery();
 
-/* ---- ideas box ---- */
-const ib = $('#id-body');
-ib.addEventListener('input', () => { $('#id-count').textContent = ar(ib.value.length); });
-$('#idea-form').addEventListener('submit', async e => {
-  e.preventDefault(); const st = $('#id-status'), t = ib.value.trim();
-  if (t.length < 3) { st.textContent = 'اكتبي فكرتكِ أولًا.'; return; }
-  $('#id-go').disabled = true; st.textContent = 'جارٍ الإرسال...';
-  const { error } = await sb.from('ideas').insert({ body: t });
-  if (error) { st.textContent = 'لم تصل فكرتكِ، حاولي مرة أخرى.'; }
-  else { ib.value = ''; $('#id-count').textContent = ar(0); st.textContent = 'وصلت فكرتكِ إلى فريق أثر. شكرًا لكِ!'; }
-  $('#id-go').disabled = false;
-});
-
 /* ---- team admin ---- */
 let adminBusy = false;
 const admMsg = t => { $('#ad-msg').textContent = t || ''; };
@@ -1221,19 +1156,10 @@ $('#ad-login').addEventListener('submit', async e => {
 $('#ad-out').addEventListener('click', async () => { await sb.auth.signOut(); adminInit(); });
 async function adminLoad(){
   rcAdminLoad();
-  const subs = $('#ad-subs'), ideas = $('#ad-ideas'); subs.replaceChildren(); ideas.replaceChildren();
+  const subs = $('#ad-subs'); subs.replaceChildren();
   const { data: rows } = await sb.from('submissions').select('*').order('created_at', { ascending: false }).limit(200);
   if (!rows || !rows.length) subs.appendChild(mk('p', 'hint', 'لا صور بعد.'));
   (rows || []).forEach(r => subs.appendChild(adminRow(r)));
-  const { data: ids } = await sb.from('ideas').select('*').order('created_at', { ascending: false }).limit(200);
-  if (!ids || !ids.length) ideas.appendChild(mk('p', 'hint', 'لا أفكار بعد.'));
-  (ids || []).forEach(r => {
-    const d = mk('div', 'arow'); d.style.gridTemplateColumns = '1fr auto';
-    const t = mk('div'); t.appendChild(mk('p', null, r.body)); t.appendChild(mk('p', 'fine', new Date(r.created_at).toLocaleDateString('ar-OM')));
-    const del = mk('button', 'btn danger small', 'حذف'); del.type = 'button';
-    armed(del, 'حذف', async () => { await sb.from('ideas').delete().eq('id', r.id); adminLoad(); });
-    d.append(t, del); ideas.appendChild(d);
-  });
 }
 function armed(btn, label, fn){
   let on = false;
@@ -1564,40 +1490,6 @@ function rcAdminRow(r){
   bt.append(save, hide, del); ctl.appendChild(bt);
   row.append(th, ctl); return row;
 }
-
-/* ---- checklist ---- */
-const CK_KEY = 'sabla.checklist';
-const done = new Set(store.get(CK_KEY) || []);
-const groups = $('#groups'); let total = 0;
-CHECKS.forEach((g,gi) => {
-  const box = document.createElement('div'); box.className = 'group';
-  box.innerHTML = `<h3>${g.g} <a href="#episodes" data-open="${g.ep}">الحلقة ${ar(g.ep)}</a></h3>`;
-  g.items.forEach((t,ti) => {
-    const id = `ck-${gi}-${ti}`; total++;
-    const lab = document.createElement('label'); lab.className = 'check'; lab.htmlFor = id;
-    lab.innerHTML = `<input type="checkbox" id="${id}"><span></span>`;
-    lab.querySelector('span').textContent = t;
-    const cb = lab.querySelector('input'); cb.checked = done.has(id);
-    cb.addEventListener('change', () => { cb.checked ? done.add(id) : done.delete(id); store.set(CK_KEY,[...done]); progress(); });
-    box.appendChild(lab);
-  });
-  box.querySelector('[data-open]').addEventListener('click', ev => { ev.preventDefault(); location.hash = 'episodes'; openEp(g.ep-1); });
-  groups.appendChild(box);
-});
-function progress(){
-  const n = [...done].filter(id => document.getElementById(id)).length;
-  $('#ck-n').textContent = ar(n); $('#ck-t').textContent = ar(total);
-  const pct = total ? Math.round(n/total*100) : 0;
-  $('#ck-bar i').style.width = pct + '%'; $('#ck-bar').setAttribute('aria-valuenow', pct);
-}
-progress();
-let resetArmed = false;
-$('#ck-reset').addEventListener('click', e => {
-  const b = e.currentTarget;
-  if (!resetArmed){ resetArmed = true; b.textContent = 'اضغطي للتأكيد'; setTimeout(()=>{resetArmed=false;b.textContent='ابدئي من جديد'},4000); return; }
-  resetArmed = false; b.textContent = 'ابدئي من جديد';
-  done.clear(); store.set(CK_KEY,[]); document.querySelectorAll('.check input').forEach(c => c.checked = false); progress();
-});
 
 route();
 </script>
